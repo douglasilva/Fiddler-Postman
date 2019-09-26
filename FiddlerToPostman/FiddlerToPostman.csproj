@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Fiddler">
-      <HintPath>..\..\..\..\AppData\Local\Programs\Fiddler\Fiddler.exe</HintPath>
+      <HintPath>..\..\..\Users\douglas.alvarenga\AppData\Local\Programs\Fiddler\Fiddler.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,7 +60,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY $(TargetDir)\Newtonsoft.Json.*  C:\Users\Avell\AppData\Local\Programs\Fiddler\ImportExport\ /Y
-COPY $(TargetDir)\FiddlerToPostman.*  C:\Users\Avell\AppData\Local\Programs\Fiddler\ImportExport\ /Y</PostBuildEvent>
+    <PostBuildEvent>COPY $(TargetDir)\Newtonsoft.Json.*  %25userprofile%25\AppData\Local\Programs\Fiddler\ImportExport\ /Y
+COPY $(TargetDir)\FiddlerToPostman.*  %25userprofile%25\AppData\Local\Programs\Fiddler\ImportExport\ /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>
