@@ -94,6 +94,16 @@ namespace PostmanSDK
 
     [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
     public URL URL { get; set; }
+
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public Body Body { get; set; }
+  }
+
+  public class Body
+  {
+    public string Mode { get; set; } = "raw";
+
+    public string Raw { get; set; }
   }
 
   public class URL

@@ -31,7 +31,7 @@ namespace FiddlerToPostman
           Postman postman = new Postman();
           postman.Info = new Info();
           postman.Info.Id = Guid.NewGuid();
-          postman.Info.Name = "Session Fiddler Exporter";
+          postman.Info.Name = Path.GetFileNameWithoutExtension(sFilename)?.Replace(".postman_collection", string.Empty);
 
           postman.Auth = new Auth();
           postman.Auth.Type = "basic";
@@ -87,6 +87,14 @@ namespace FiddlerToPostman
 
               request.Request.Method = oS.RequestMethod;
               request.Request.URL = new URL(oS.fullUrl);
+
+              var requestBody = oS.GetRequestBodyAsString();
+
+              if (!string.IsNullOrEmpty(requestBody))
+              {
+                request.Request.Body = new Body();
+                request.Request.Body.Raw = oS.GetRequestBodyAsString();
+              }
 
               postman.Item.Add(request);
             }
